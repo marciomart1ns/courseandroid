@@ -1,91 +1,59 @@
-
-Skip to content
-
-    Pricing
-
-Sign in
-Sign up
-rcsn1 /
-desenvolvedor-mobile
-Public
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-
-    Insights
-
-desenvolvedor-mobile/atividade2
-@rcsn1
-rcsn1 Update atividade2
-Latest commit 0c4097d Dec 13, 2022
-History
-1 contributor
-47 lines (39 sloc) 909 Bytes
-<!DOCTYPE html>
-<html>
-<body>
-
-<h2>Atividade de Programação</h2>
-
-<p id="demo"></p>
-
-<script>
-const cadastro = []
-let continua = 's'
-var str = "sSnN";
-
-while ("sS".includes(continua)) {
-    let nome = prompt("Entre com o Nome ..: ")
-    let idade = prompt("Entre com a idade : ")
-    if (idade >= 18) 
-    {
-        if (cadastro.length <= 100) 
-        {
-            let registro = nome + "-" + idade + "#"  
-            cadastro.push(registro)
-            console.log("Registro Inserido !!!")
-        } 
-        else 
-        {
-            console.log("São inseridos apenas os 100 primeiros cadastros !!!")
-        }
-    } 
-    else 
-    {
-        console.log("Menor de Idade não será cadastrado !!!")
+class Pessoa{
+    constructor(pNome, pEndereco){
+        this.Nome = pNome;
+        this.Endereco = pEndereco;
     }
+    get Nome() { return this.nome};
+    set Nome(pNome){ this.nome = pNome};
+    get Endereco() { return this.endereco};
+    set Endereco(pEndereco){ this.endereco = pEndereco};
 
-    continua = 'X'
-    while (!str.includes(continua)) 
-    {
-      continua = prompt("Cadastrar outro cliente ??? (S-SIM ou N=NÃO)")
+    toString(){
+        return `Nome: ${this.nome} \nEndereço: ${this.endereco}`;
     }
-
 }
 
-console.log(cadastro)
-</script>
+class Fisica extends Pessoa{
+    constructor(pNome, pEndereco, pCpf, pDtNascimento){
+        super(pNome, pEndereco);
+        this.Cpf = pCpf;
+        this.DtNascimento = pDtNascimento;
+    }
+    get Cpf() { return this.cpf};
+    set Cpf(pCpf){ this.cpf = pCpf};
+    get DtNascimento() { return this.dtNascimento};
+    set DtNascimento(pDtNascimento){ this.dtNascimento = pDtNascimento};
 
-</body>
-</html>
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
+    toString(){
+        let retorno = super.toString();
+        retorno = retorno + `\nCpf: ${this.cpf} \nNascimento: ${this.dtNascimento}`;
+        return retorno;
+    }
+}
 
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
+class Juridica extends Pessoa{
+    constructor(pNome, pEndereco, pCnpj, pRazaoSocial){
+        super(pNome, pEndereco);
+        this.Cnpj = pCnpj;
+        this.RazaoSocial = pRazaoSocial;
+    }
+    get Cnpj() { return this.cnpj};
+    set Cnpj(pCnpj){ this.cnpj = pCnpj};
+    get RazaoSocial() { return this.razaoSocial};
+    set RazaoSocial(pRazaoSocial){ this.razaoSocial = pRazaoSocial};
 
+    toString(){
+        let retorno = super.toString();
+        retorno = retorno + `\nCnpj: ${this.cnpj} \nRazao Social: ${this.razaoSocial}`;
+        return retorno;
+    }
+}
 
+var pessoa = new Pessoa("Luiz","Helvetia 667");
+console.log(pessoa.toString());
+
+var fisica = new Fisica("João", "Avenida Sapopemba","314399876-12","18/05/1986");
+console.log(fisica.toString());
+
+var juridica = new Juridica("Mega Util", "Avenida Sapopemba","804890020001-12","XX Comercio de Utilidades Ltda");
+console.log(juridica.toString());
