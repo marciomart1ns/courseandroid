@@ -1,0 +1,91 @@
+
+Skip to content
+
+    Pricing
+
+Sign in
+Sign up
+rcsn1 /
+desenvolvedor-mobile
+Public
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+
+    Insights
+
+desenvolvedor-mobile/atividade2
+@rcsn1
+rcsn1 Update atividade2
+Latest commit 0c4097d Dec 13, 2022
+History
+1 contributor
+47 lines (39 sloc) 909 Bytes
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Atividade de Programação</h2>
+
+<p id="demo"></p>
+
+<script>
+const cadastro = []
+let continua = 's'
+var str = "sSnN";
+
+while ("sS".includes(continua)) {
+    let nome = prompt("Entre com o Nome ..: ")
+    let idade = prompt("Entre com a idade : ")
+    if (idade >= 18) 
+    {
+        if (cadastro.length <= 100) 
+        {
+            let registro = nome + "-" + idade + "#"  
+            cadastro.push(registro)
+            console.log("Registro Inserido !!!")
+        } 
+        else 
+        {
+            console.log("São inseridos apenas os 100 primeiros cadastros !!!")
+        }
+    } 
+    else 
+    {
+        console.log("Menor de Idade não será cadastrado !!!")
+    }
+
+    continua = 'X'
+    while (!str.includes(continua)) 
+    {
+      continua = prompt("Cadastrar outro cliente ??? (S-SIM ou N=NÃO)")
+    }
+
+}
+
+console.log(cadastro)
+</script>
+
+</body>
+</html>
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+
